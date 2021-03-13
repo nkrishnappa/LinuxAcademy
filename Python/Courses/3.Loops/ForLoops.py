@@ -21,3 +21,5 @@ print("------------------------")
 print("Loop using List Comprehensive")
 print("------------------------")
 print([tuple for tuple in tuples])
+
+
