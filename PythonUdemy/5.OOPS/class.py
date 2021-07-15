@@ -11,7 +11,8 @@ Class Kettle
 
 # kenwood = Kettle("Kenwood", 8.99)
 # print("{} = {}".format(kenwood.make, kenwood.price))
-# Kenwood = 8.99
+# # Kenwood = 8.99
+# del kenwood
 # ------------------------------------------
 
 # ------------------------------------------
