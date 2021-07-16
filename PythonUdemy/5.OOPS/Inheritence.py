@@ -136,3 +136,31 @@ print (f''' issubclass(t,Triangle)  - {issubclass(Polygon,Triangle)}
 # [**]
 # 1. A better option would be to use the built-in function super(). 
 #    So, super().__init__(3) is equivalent to Polygon.__init__(self,3) and is preferred. 
+
+
+
+# -----------------------------------------------------------
+# MultiLevel Inheritence
+# -----------------------------------------------------------
+# A class can be derived from more than one base class in Python, similar to C++. This is called multiple inheritance.
+# In multiple inheritance, the features of all the base classes are inherited into the derived class. 
+
+# Python Multilevel Inheritance : 
+# We can also inherit from a derived class. This is called multilevel inheritance. It can be of any depth in Python.
+# In multilevel inheritance, features of the base class and the derived class are inherited into the new derived class.
+
+# Syntax
+class Angle(Triangle):
+     pass
+class Dot(Angle):
+     pass
+
+print (f"Method Resolution Order : {[ classOb for classOb in Dot.__mro__]}")
+# Method Resolution Order : (<class '__main__.Dot'>, <class '__main__.Angle'>, <class '__main__.Triangle'>, <class '__main__.Polygon'>, <class 'object'>)
+
+# Method Resolution Order 
+# Every class in Python is derived from the object class. It is the most base type in Python.
+# So technically, all other classes, either built-in or user-defined, are derived classes and all objects are instances of the object class.
+# In the multiple inheritance scenario, any specified attribute is searched first in the current class. 
+# If not found, the search continues into parent classes in depth-first, left-right fashion without searching the same class twice.
+
