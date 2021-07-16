@@ -74,7 +74,8 @@ class Polygon:
 # Add the additional functionality only for the Triangle
 class Triangle(Polygon):
     def __init__(self):
-        Polygon.__init__(self, 3)
+        # Polygon.__init__(self, 3) # [*]
+        super().__init__(3)         # [**]
     def findArea(self):
         a, b, c = self.sides
         s = (a + b + c) / 2
@@ -92,8 +93,46 @@ t.findArea()
 # Enter side 1 : 3
 # Enter side 2 : 5
 # Enter side 3 : 4
-# Side 1 is : 3.0
+# Side 1 is : 3.03
 # Side 2 is : 5.0
 # Side 3 is : 4.0
 # The area of the triangle is 6.00
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+# Two built-in functions isinstance() and issubclass() are used to check inheritances.
+# The function isinstance() returns True if the object is an instance of the class or other classes derived from it. 
+# Each and every class in Python inherits from the base class object.
+print (f''' isinstance(t,Triangle)  - {isinstance(t,Triangle)}
+ isinstance(t,Polygon)   - {isinstance(t,Polygon)}
+ isinstance(t,int)       - {isinstance(t,int)}
+ isinstance(t,object)    - {isinstance(t,object)}
+''')
+print (f''' issubclass(t,Triangle)  - {issubclass(Polygon,Triangle)}
+ isinstance(t,Polygon)   - {issubclass(Triangle,Polygon)}
+ isinstance(t,int)       - {issubclass(bool,int)}
+''')
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# output :
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#  isinstance(t,Triangle)  - True
+#  isinstance(t,Polygon)   - True
+#  isinstance(t,int)       - False
+#  isinstance(t,object)    - True
+
+#  issubclass(t,Triangle)  - False
+#  isinstance(t,Polygon)   - True
+#  isinstance(t,int)       - True
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# [*] - 
+# 1. In the above example, notice that __init__() method was defined in both classes, 
+#    Triangle as well Polygon. When this happens, the method in the derived class overrides that in the base class. 
+#    This is to say, __init__() in Triangle gets preference over the __init__ in Polygon.
+# 2. Generally when overriding a base method, we tend to extend the definition rather than simply replace it. 
+#    The same is being done by calling the method in base class from the one in derived class 
+#    (calling Polygon.__init__() from __init__() in Triangle).
+
+# [**]
+# 1. A better option would be to use the built-in function super(). 
+#    So, super().__init__(3) is equivalent to Polygon.__init__(self,3) and is preferred. 
