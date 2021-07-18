@@ -1,0 +1,41 @@
+More details : 
+    https://docs.google.com/document/d/1dth5Q5JGpumTRaryO8djDBeYynwiY-he9lDcIatCz1Q/edit?usp=sharing
+
+Python supports multiple programming paradims - 
+    Object Oriented Language 
+    imperative 
+    Procedural/functional programming
+
+"Everything is Object in Python"
+"In python, Every type is Class"
+
+Method and Attributes
+    Data Attributes
+        A variable is bound to a instance of a Class is referred to as Data Attribute
+        fields(java) and Data members (c++)
+
+    Method
+        A funtion defined in a class
+    
+    Class Attributes
+        bound to an class
+        similar to Static fields in c++ 
+        
+
+1. Class 
+    Template for creating Objects. All Objects created using the same class will have the same characteristics
+    Class creation takes two steps
+        __new__
+            __new__ is the first step of instance creation. It's called first, and is responsible for returning a new instance of your class.
+        __init__
+            __init__ doesn't return anything; it's only responsible for initializing the instance after it's been created.
+2. Object
+    An instance of a class 
+
+Keywords
+    self
+        Reference to an instance of a class
+
+Explore More on 
+    Method vs Function 
+
