@@ -15,6 +15,7 @@ class Account:
         self.balance = balance
         self.transaction_list = []
         print("Account Created for " + self.name)
+        self.transaction_list.append((Account._current_time(), balance))
 
     def deposit(self, amount):
         if amount > 0:
@@ -40,8 +41,8 @@ class Account:
                 tran_type = "deposited"
             else:
                 tran_type = "withdrawn"
-                amount += -1 
-            print (f"{amount:6} {tran_type}  {date} on (local time was {date.astimezone()})")
+                amount *= -1 
+            print (f"{amount:6} {tran_type} on {date} (local time was {date.astimezone()})")
 
 if __name__ == '__main__':
     tim = Account("Tim",0)
@@ -73,3 +74,16 @@ if __name__ == '__main__':
     -501 withdrawn  2021-07-18 14:20:11.920087+00:00 on (local time was 2021-07-18 19:50:11.920087+05:30)
     1000 deposited  2021-07-18 14:20:11.922081+00:00 on (local time was 2021-07-18 19:50:11.922081+05:30)
     """
+
+    mark = Account("Mark", 800)
+    mark.deposit(100)
+    mark.withdraw(200)
+    mark.show_transaction()
+    '''
+    Account Created for Mark
+    Balance is 900
+    Balance is 700
+    800 deposited on 2021-07-19 02:37:31.095062+00:00 (local time was 2021-07-19 08:07:31.095062+05:30)
+    100 deposited on 2021-07-19 02:37:31.096059+00:00 (local time was 2021-07-19 08:07:31.096059+05:30)
+    200 withdrawn on 2021-07-19 02:37:31.096059+00:00 (local time was 2021-07-19 08:07:31.096059+05:30)
+    '''

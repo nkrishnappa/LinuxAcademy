@@ -21,6 +21,9 @@ Method and Attributes
         bound to an class
         similar to Static fields in c++ 
         
+Attributes with single underscore(_) are internal use only
+_ - private access - 
+__ - Name Mangling , attributes are hidden will not be overiden - Only start with __
 
 1. Class 
     Template for creating Objects. All Objects created using the same class will have the same characteristics
@@ -31,6 +34,8 @@ Method and Attributes
             __init__ doesn't return anything; it's only responsible for initializing the instance after it's been created.
 2. Object
     An instance of a class 
+
+
 
 Keywords
     self
